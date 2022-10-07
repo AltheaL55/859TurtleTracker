@@ -58,12 +58,16 @@ for lineString in line_list:
     #Create an empty key list
     matching_keys = []
     
-    # Loop through all key, value pairs in the date_dictionary
-    for the_key, the_value in date_dict.items():
-        #See if the date (the value) matches the user date
-        if the_value == user_date:
-            matching_keys.append(the_key)
+# Loop through all key, value pairs in the date_dictionary
+for the_key, the_value in date_dict.items():
+    #See if the date (the value) matches the user date
+    if the_value == user_date:
+        matching_keys.append(the_key)
 #Reveal locations for each key in matching_keys
+if len(matching_keys) == 0:
+    print(f"Sara was not located on {user_date}")
+
 for matching_key in matching_keys:
-    obs_lat, obs_lon = location_dict[matching_key]
-    print(f"Record {matching_key} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {user_date}")
+    # Report whether no keys were found
+        obs_lat, obs_lon = location_dict[matching_key]
+        print(f"Record {matching_key} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {user_date}")
