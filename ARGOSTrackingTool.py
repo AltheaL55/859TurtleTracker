@@ -42,10 +42,13 @@ for lineString in line_list:
     #Extract items in list into variables
     record_id = lineData[0]
     obs_date = lineData[2][:8]
-    obs_lc = lineData[4]
+    obs_lc = lineData[3]
     obs_lat = lineData[5]
     obs_lon = lineData[6]
-    
+    if obs_lc in("1","2","3"):
+        pass
+    else:
+        continue
     #Print the location of sara
     print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
     date_dict[record_id]= obs_date
